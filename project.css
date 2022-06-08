@@ -1,0 +1,246 @@
+@import url("https://fonts.googleapis.com/css2?family=Oxygen:wght@400;700&family=Roboto&display=swap");
+:root {
+  --secondary: #42b0ff;
+  --tertiary: #0467ae;
+  --gradient: linear-gradient(90deg, rgb(66, 176, 255), rgba(2, 84, 142, 0.91));
+  --black: #585d61;
+  --white: #eff0f0;
+  --body-padding: 1.5rem;
+  --heading: "Oxygen", sans-serif;
+  --p: "Roboto", sans-serif;
+}
+
+h4 {
+  font-size: 1.333rem;
+}
+
+h3 {
+  font-size: 1.776889rem;
+}
+
+h2 {
+  font-size: 2.368593037rem;
+}
+
+h1 {
+  font-size: 3.1573345183rem;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  border: 0;
+  font: inherit;
+  color: inherit;
+}
+
+svg {
+  fill: currentColor;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--heading);
+  line-height: 1.4;
+}
+
+div,
+p,
+span,
+li {
+  font-family: var(--p);
+}
+
+.container {
+  padding: 4.25rem var(--body-padding);
+}
+
+[class$=__title] {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+body {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: 70vh 1fr auto;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+header {
+  border: 1px solid black;
+  background: #4f5152 url("../../images/heroportrait.jpg");
+  background-size: cover;
+  background-blend-mode: multiply;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+header .header {
+  display: flex;
+  padding: 1rem var(--body-padding);
+  justify-content: space-between;
+  align-items: center;
+  color: var(--secondary);
+}
+header .header__menu {
+  width: 1.1875rem;
+  height: 1.1875rem;
+  fill: var(--secondary);
+}
+header .hero {
+  color: var(--white);
+  display: grid;
+  place-content: center;
+  gap: 2rem;
+  padding: 0 1.5rem;
+}
+header .hero__text {
+  text-align: center;
+}
+header .hero__btn {
+  justify-self: center;
+  padding: 0.5rem 2.5rem;
+  background-image: var(--gradient);
+  border-radius: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.works {
+  margin-top: 4.25rem;
+  margin-bottom: 4.25rem;
+}
+.works__div {
+  width: calc(100vw - var(--body-padding) * 2);
+  display: flex;
+  overflow-x: auto;
+  gap: 0.75rem;
+  -ms-scroll-snap-type: x;
+      scroll-snap-type: x;
+  padding: 0.25rem 0.25rem;
+  margin: auto;
+}
+
+.card {
+  color: var(--white);
+  flex-shrink: 0;
+  border: 1px solid black;
+  width: 13.75rem;
+  scroll-snap-align: center;
+  background-size: cover;
+  background-position: 50% 0%;
+  background-color: rgba(0, 0, 0, 0.8);
+  background-blend-mode: overlay;
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 0.25rem 0 rgb(0, 0, 0);
+}
+.card:nth-of-type(1) {
+  background-image: url("../../images/card1.jpg");
+}
+.card:nth-of-type(2) {
+  background-image: url("../../images/card2.jpg");
+}
+.card:nth-of-type(3) {
+  background-image: url("../../images/card3.jpg");
+}
+.card__title {
+  text-align: left;
+  margin: 0;
+}
+.card__btn {
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--secondary);
+  border-radius: 0.25rem;
+}
+
+.about {
+  background-color: var(--secondary);
+  color: var(--white);
+}
+
+.contact {
+  --input-padding: 0.5rem;
+}
+.contact > div {
+  display: flex;
+  position: relative;
+}
+.contact > div label {
+  order: -1;
+  position: absolute;
+  margin-left: var(--input-padding);
+  margin-top: 0.25rem;
+  transition: transform 0.25s;
+  background-color: white;
+  padding: 0 0.125rem;
+}
+.contact > div > input,
+.contact > div > textarea {
+  border: 0.125rem solid var(--tertiary);
+  outline-color: var(--secondary);
+  outline-offset: 0.25rem;
+  width: 100%;
+  padding: var(--input-padding);
+  border-radius: 0.25rem;
+}
+.contact > div > input:focus ~ label,
+.contact > div > textarea:focus ~ label {
+  transform: translateY(-1rem);
+}
+.contact > div > textarea#message {
+  resize: none;
+  height: 4.375rem;
+}
+.contact > *:not(.contact__title) {
+  margin-bottom: 1.5rem;
+}
+.contact__btn {
+  color: var(--white);
+  padding: 0.5rem 1.5rem;
+  background-image: var(--gradient);
+  border-radius: 0.25rem;
+  box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.4);
+}
+
+footer {
+  padding: 2rem var(--body-padding) 0 var(--body-padding);
+  background-color: var(--tertiary);
+  color: var(--white);
+  font-size: 0.75rem;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  gap: 1.5rem;
+}
+footer [role=list] {
+  list-style-type: none;
+}
+footer [role=list] li {
+  text-align: center;
+}
+footer [role=list] li:not(:first-of-type) {
+  margin-top: 1rem;
+}
+footer .footer__footer {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}
+footer .footer__footer .instagram g {
+  fill: var(--white);
+}/*# sourceMappingURL=project.css.map */
