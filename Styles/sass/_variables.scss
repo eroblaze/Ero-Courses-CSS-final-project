@@ -1,0 +1,13 @@
+@use "./functions" as f;
+
+$base-fs: 16;
+:root {
+  --secondary: #42b0ff;
+  --tertiary: #0467ae;
+  --gradient: linear-gradient(90deg, rgb(66, 176, 255), rgba(2, 84, 142, 0.91));
+  --black: #585d61;
+  --white: #eff0f0;
+  --body-padding: #{f.rem(24)};
+  --heading: "Oxygen", sans-serif;
+  --p: "Roboto", sans-serif;
+}

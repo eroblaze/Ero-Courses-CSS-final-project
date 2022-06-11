@@ -1,0 +1,15 @@
+// define the font sizes of elements
+@use "./variables" as v;
+@use "./functions" as f;
+
+$font-scale: v.$base-fs;
+$type-scale: 1.333;
+$elements: h4 h3 h2 h1;
+
+@each $el in $elements {
+  $font-scale: $font-scale * $type-scale !global;
+
+  #{$el} {
+    font-size: f.rem($font-scale);
+  }
+}

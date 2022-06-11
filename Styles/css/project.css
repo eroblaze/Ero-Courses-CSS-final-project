@@ -66,20 +66,22 @@ li {
 
 [class$=__title] {
   text-align: center;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 body {
+  font-family: var(--p);
   min-height: 100vh;
   display: grid;
   grid-template-rows: 70vh 1fr auto;
   line-height: 1.6;
   font-size: 1rem;
+  color: var(--black);
 }
 
 header {
   border: 1px solid black;
-  background: #4f5152 url("heroportrait.jpg");
+  background: #4f5152 url("../../images/heroportrait.jpg");
   background-size: cover;
   background-blend-mode: multiply;
   display: grid;
@@ -111,7 +113,7 @@ header .hero__btn {
   justify-self: center;
   padding: 0.5rem 2.5rem;
   background-image: var(--gradient);
-  border-radius: 0.25rem;
+  border-radius: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -150,23 +152,23 @@ header .hero__btn {
   box-shadow: 0 0 0.25rem 0 rgb(0, 0, 0);
 }
 .card:nth-of-type(1) {
-  background-image: url("card1.jpg");
+  background-image: url("../../images/card1.jpg");
 }
 .card:nth-of-type(2) {
-  background-image: url("card2.jpg");
+  background-image: url("../../images/card2.jpg");
 }
 .card:nth-of-type(3) {
-  background-image: url("card3.jpg");
+  background-image: url("../../images/card3.jpg");
 }
 .card__title {
   text-align: left;
   margin: 0;
 }
 .card__btn {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   padding: 0.5rem 1rem;
   background-color: var(--secondary);
-  border-radius: 0.25rem;
+  border-radius: 3rem;
 }
 
 .about {
@@ -189,15 +191,19 @@ header .hero__btn {
   transition: transform 0.25s;
   background-color: white;
   padding: 0 0.125rem;
+  font-weight: bold;
 }
 .contact > div > input,
 .contact > div > textarea {
   border: 0.125rem solid var(--tertiary);
   outline-color: var(--secondary);
+  outline-width: 0.125rem;
   outline-offset: 0.25rem;
   width: 100%;
   padding: var(--input-padding);
   border-radius: 0.25rem;
+  font-family: var(--p);
+  font-size: 1rem;
 }
 .contact > div > input:focus ~ label,
 .contact > div > textarea:focus ~ label {
@@ -211,10 +217,11 @@ header .hero__btn {
   margin-bottom: 1.5rem;
 }
 .contact__btn {
-  color: var(--white);
   padding: 0.5rem 1.5rem;
   background-image: var(--gradient);
-  border-radius: 0.25rem;
+  width: 100%;
+  color: var(--white);
+  border-radius: 3rem;
   box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.4);
 }
 
@@ -222,7 +229,7 @@ footer {
   padding: 2rem var(--body-padding) 0 var(--body-padding);
   background-color: var(--tertiary);
   color: var(--white);
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   display: grid;
   grid-template-rows: 1fr auto;
   gap: 1.5rem;

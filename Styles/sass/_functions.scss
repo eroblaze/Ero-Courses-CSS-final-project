@@ -1,0 +1,5 @@
+@use "sass:math" as m;
+
+@function rem($px) {
+  @return m.div($px, 16) + rem;
+}
