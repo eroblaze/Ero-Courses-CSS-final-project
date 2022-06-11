@@ -5,7 +5,7 @@
   --gradient: linear-gradient(90deg, rgb(66, 176, 255), rgba(2, 84, 142, 0.91));
   --black: #585d61;
   --white: #eff0f0;
-  --body-padding: 1.5rem;
+  --body-padding: 1rem;
   --heading: "Oxygen", sans-serif;
   --p: "Roboto", sans-serif;
 }
@@ -64,9 +64,13 @@ li {
   padding: 4.25rem var(--body-padding);
 }
 
+.moveup {
+  transform: translateY(-1.25rem);
+}
+
 [class$=__title] {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 
 body {
@@ -106,12 +110,28 @@ header .hero {
   gap: 2rem;
   padding: 0 1.5rem;
 }
+header .hero div {
+  text-align: center;
+  isolation: isolate;
+  display: grid;
+  grid-template-areas: one;
+}
+header .hero div > * {
+  grid-area: one;
+}
 header .hero__text {
   text-align: center;
 }
+header .hero__text + svg {
+  width: 12.5rem;
+  transform: translateY(35%) rotate(-2deg);
+  align-self: end;
+  justify-self: center;
+  z-index: -1;
+}
 header .hero__btn {
   justify-self: center;
-  padding: 0.5rem 2.5rem;
+  padding: 0.75rem 2.5rem;
   background-image: var(--gradient);
   border-radius: 3rem;
   display: flex;
@@ -129,8 +149,8 @@ header .hero__btn {
   display: flex;
   overflow-x: auto;
   gap: 0.75rem;
-  -ms-scroll-snap-type: x;
-      scroll-snap-type: x;
+  -ms-scroll-snap-type: x mandatory;
+      scroll-snap-type: x mandatory;
   padding: 0.25rem 0.25rem;
   margin: auto;
 }
@@ -151,7 +171,7 @@ header .hero__btn {
   border-radius: 0.5rem;
   box-shadow: 0 0 0.25rem 0 rgb(0, 0, 0);
 }
-.card:nth-of-type(1) {
+.card:nth-of-type(1), .card:nth-of-type(4) {
   background-image: url("../../images/card1.jpg");
 }
 .card:nth-of-type(2) {
@@ -176,9 +196,6 @@ header .hero__btn {
   color: var(--white);
 }
 
-.contact {
-  --input-padding: 0.5rem;
-}
 .contact > div {
   display: flex;
   position: relative;
@@ -186,32 +203,32 @@ header .hero__btn {
 .contact > div label {
   order: -1;
   position: absolute;
-  margin-left: var(--input-padding);
-  margin-top: 0.25rem;
+  margin-left: 0.5rem;
+  margin-top: 0.625rem;
   transition: transform 0.25s;
   background-color: white;
-  padding: 0 0.125rem;
+  padding: 0 0.25rem;
   font-weight: bold;
+  line-height: 1;
 }
 .contact > div > input,
 .contact > div > textarea {
   border: 0.125rem solid var(--tertiary);
-  outline-color: var(--secondary);
-  outline-width: 0.125rem;
-  outline-offset: 0.25rem;
   width: 100%;
-  padding: var(--input-padding);
+  padding: 0.625rem 0.5rem;
   border-radius: 0.25rem;
   font-family: var(--p);
   font-size: 1rem;
 }
-.contact > div > input:focus ~ label,
-.contact > div > textarea:focus ~ label {
-  transform: translateY(-1rem);
+.contact > div > input:focus,
+.contact > div > textarea:focus {
+  outline: 0.125rem solid var(--secondary);
+  outline-offset: 0.125rem;
 }
 .contact > div > textarea#message {
-  resize: none;
-  height: 4.375rem;
+  resize: vertical;
+  min-height: 5rem;
+  max-height: 10rem;
 }
 .contact > *:not(.contact__title) {
   margin-bottom: 1.5rem;

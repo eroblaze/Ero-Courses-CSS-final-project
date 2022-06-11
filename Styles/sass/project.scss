@@ -1,3 +1,5 @@
+@use "sass:list";
+
 @use "./variables" as *;
 @use "./functions" as f;
 @use "./typography" as *;
@@ -39,9 +41,13 @@ li {
   padding: f.rem(68) var(--body-padding);
 }
 
+.moveup {
+  transform: translateY(-#{f.rem(20)});
+}
+
 [class$="__title"] {
   text-align: center;
-  margin-bottom: f.rem(16);
+  margin-bottom: f.rem(32);
 }
 
 body {
@@ -77,17 +83,35 @@ header {
   }
   .hero {
     color: var(--white);
-    // border: 1px solid red;
     display: grid;
     place-content: center;
     gap: f.rem(32);
     padding: 0 f.rem(24);
+
+    div {
+      text-align: center;
+      isolation: isolate;
+      display: grid;
+      grid-template-areas: one;
+      > * {
+        grid-area: one;
+      }
+    }
+
     &__text {
       text-align: center;
+
+      & + svg {
+        width: f.rem(200);
+        transform: translateY(35%) rotate(-2deg);
+        align-self: end;
+        justify-self: center;
+        z-index: -1;
+      }
     }
     &__btn {
       justify-self: center;
-      padding: f.rem(8) f.rem(40);
+      padding: f.rem(12) f.rem(40);
       background-image: var(--gradient);
       border-radius: 3rem;
       display: flex;
@@ -108,7 +132,7 @@ header {
     display: flex;
     overflow-x: auto;
     gap: f.rem(12);
-    scroll-snap-type: x;
+    scroll-snap-type: x mandatory;
     padding: f.rem(4) f.rem(4);
     margin: auto;
   }
@@ -130,7 +154,8 @@ header {
   border-radius: f.rem(8);
   box-shadow: 0 0 f.rem(4) 0 rgb(0, 0, 0);
 
-  &:nth-of-type(1) {
+  &:nth-of-type(1),
+  &:nth-of-type(4) {
     background-image: url("../../images/card1.jpg");
   }
 
@@ -161,7 +186,7 @@ header {
 }
 
 .contact {
-  --input-padding: #{f.rem(8)};
+  $input-padding: #{f.rem(10)} #{f.rem(8)};
   > div {
     // border: 1px solid red;
     display: flex;
@@ -169,32 +194,32 @@ header {
     label {
       order: -1;
       position: absolute;
-      margin-left: var(--input-padding);
-      margin-top: f.rem(4);
+      margin-left: list.nth($input-padding, 2);
+      margin-top: list.nth($input-padding, 1);
       transition: transform 0.25s;
       background-color: white;
-      padding: 0 f.rem(2);
+      padding: 0 f.rem(4);
       font-weight: bold;
+      line-height: 1;
     }
     > input,
     > textarea {
       border: f.rem(2) solid var(--tertiary);
-      outline-color: var(--secondary);
-      outline-width: f.rem(2);
-      outline-offset: f.rem(4);
       width: 100%;
-      padding: var(--input-padding);
+      padding: $input-padding;
       border-radius: f.rem(4);
       font-family: var(--p);
       font-size: 1rem;
 
-      &:focus ~ label {
-        transform: translateY(-#{f.rem(16)});
+      &:focus {
+        outline: f.rem(2) solid var(--secondary);
+        outline-offset: f.rem(2);
       }
     }
     > textarea#message {
-      resize: none;
-      height: f.rem(70);
+      resize: vertical;
+      min-height: f.rem(80);
+      max-height: f.rem(160);
     }
   }
   > *:not(#{&}__title) {
