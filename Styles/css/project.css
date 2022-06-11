@@ -77,7 +77,7 @@ body {
   font-family: var(--p);
   min-height: 100vh;
   display: grid;
-  grid-template-rows: 70vh 1fr auto;
+  grid-template-rows: minmax(26.4375rem, 70vh) 1fr auto;
   line-height: 1.6;
   font-size: 1rem;
   color: var(--black);
@@ -131,7 +131,7 @@ header .hero__text + svg {
 }
 header .hero__btn {
   justify-self: center;
-  padding: 0.75rem 2.5rem;
+  padding: 0.75rem 3rem;
   background-image: var(--gradient);
   border-radius: 3rem;
   display: flex;

@@ -54,7 +54,7 @@ body {
   font-family: var(--p);
   min-height: 100vh;
   display: grid;
-  grid-template-rows: 70vh 1fr auto;
+  grid-template-rows: minmax(#{f.rem(423)}, 70vh) 1fr auto;
   line-height: 1.6;
   font-size: f.rem($base-fs);
   color: var(--black);
@@ -111,7 +111,7 @@ header {
     }
     &__btn {
       justify-self: center;
-      padding: f.rem(12) f.rem(40);
+      padding: f.rem(12) f.rem(48);
       background-image: var(--gradient);
       border-radius: 3rem;
       display: flex;
